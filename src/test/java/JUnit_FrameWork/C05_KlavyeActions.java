@@ -14,6 +14,7 @@ public class C05_KlavyeActions extends TestBase {
     public void Test01() throws InterruptedException {
 
         //2- https://www.amazon.com sayfasina gidelim
+
         driver.get("https://www.amazon.com");
 
         //3- Arama kutusuna actions method’larini kullanarak Samsung A71 yazdirin
@@ -21,13 +22,13 @@ public class C05_KlavyeActions extends TestBase {
 
         Actions actions = new Actions(driver);
 
-        WebElement searchBox = driver.findElement(By.id("twotabsearchtextbox"));
+        WebElement aramaKutusu= driver.findElement(By.id("twotabsearchtextbox"));
 
-        actions.click(searchBox)
+        actions.click(aramaKutusu)
                 .keyDown(Keys.SHIFT)
                 .sendKeys("s")
                 .keyUp(Keys.SHIFT)
-                .sendKeys("amsung")
+                .sendKeys("amsung ")
                 .keyDown(Keys.SHIFT)
                 .sendKeys("a")
                 .keyUp(Keys.SHIFT)
@@ -37,15 +38,16 @@ public class C05_KlavyeActions extends TestBase {
 
         Thread.sleep(5000);
 
+
         //4- aramanin gerceklestigini test edin
 
-        WebElement searchResult= driver.findElement(By.xpath("//h1[@class='a-size-base s-desktop-toolbar a-text-normal']"));
+        WebElement sonucYaziElementi = driver.findElement(By.xpath("//h1[@class='a-size-base s-desktop-toolbar a-text-normal']"));
 
-        String expectedContent="Samsung A71";
+        String expectedIcerik = "Samsung A71";
 
-        String actualResult=searchResult.getText();
+        String actualSonucYazisi= sonucYaziElementi.getText();
 
-        Assert.assertTrue(actualResult.contains(expectedContent));
+        Assert.assertTrue(actualSonucYazisi.contains(expectedIcerik));
 
     }
 
