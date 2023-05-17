@@ -81,6 +81,7 @@ public class C01_Satır_Sutun extends TestBase {
             //  hucredeki bilgiyi döndüren bir method olusturun
 
             System.out.println("................................");
+
             System.out.println(dataGetir(1,9));
         }
 
